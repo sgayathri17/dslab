@@ -1,0 +1,36 @@
+//LINEAR SEARCH
+#include <stdio.h>
+int main()
+{
+	int i,n,x,c=0,count=0;c++;
+	printf("Enter the limit:");
+	scanf("%d",&n);c++;
+	int A[n];c++;
+	printf("\nEnter the array elements:");
+	for (int i=0;i<n;i++,c++)
+	{
+		scanf(" %d",&A[i]);c++;
+	}
+	printf("\nEnter the element to be searched:");
+	scanf("%d",&x);c++;
+	for (int i=0;i<n;i++,c++)
+	{
+		if (A[i]==x)
+		{
+			count++;
+			printf("\nThe element is found at position: %d",i+1);c++;
+		}
+		
+	}
+	if(count>0)
+	{c++;
+		printf("\nThe element is found %d times",count);c++;
+	}
+	else
+	{c++;
+		printf("\nThe element is not found");
+	}
+	printf("\n The space complexity:%d",20+4*n);c++;
+	printf("\n The time complexity:%d",c+2);
+	return 0;
+}
