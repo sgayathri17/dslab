@@ -1,0 +1,55 @@
+//SELECTION SORT
+#include <stdio.h>
+
+int main() {
+    int n, i, j, small, temp;
+
+    printf("Enter the number of elements: ");
+    scanf("%d", &n);
+
+    int array[n];
+
+    
+    printf("Enter the elements: ");
+    i = 0;
+    while (i < n) {
+        scanf("%d", &array[i]);
+        i++;
+    }
+
+    
+    i = 0;
+    while (i < n - 1) {
+        
+        small = i;
+
+        
+        j = i + 1;
+        while (j < n) {
+            if (array[j] < array[small]) {
+                small = j;
+            }
+            j++;
+        }
+
+        
+        if (small != i) {
+            temp = array[i];
+            array[i] = array[small];
+            array[small] = temp;
+        }
+
+        i++;
+    }
+
+    
+    printf("Sorted array: ");
+    i = 0;
+    while (i < n) {
+        printf("%d ", array[i]);
+        i++;
+    }
+    printf("\n");
+
+    return 0;
+}
