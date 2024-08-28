@@ -1,0 +1,70 @@
+#include <stdio.h>
+void enqueue(int CQ[],int *fr,int *re,int max)
+{
+    if(*fr==(*re+1)%max){
+        printf("Queue is full...\n");
+        return;}
+    else{
+        if(*fr == -1){
+            *fr = 0;}
+        *re =(*re + 1)%max;
+        int item;
+        printf("Enter number to be inserted: ");
+        scanf("%d",&item);
+        CQ[*re] = item;
+        printf("%d is inserted\n",item);}}
+void dequeue(int CQ[],int *fr,int *re,int max)
+{
+    if(*fr == -1){
+        printf("Queue is empty....\n");
+    }else{
+        if(*fr == *re){
+            int item = CQ[*fr];
+            *fr = -1;
+            *re = -1;
+            printf("%d is deleted.\n",item);
+        }else{
+            int item = CQ[*fr];
+            *fr = (*fr+1)%max;
+            printf("%d deleted.\n",item);}}}
+void display(int CQ[],int *fr,int *re,int max){
+    if(*fr == -1){
+        printf("Queue is empty...\n");
+    }else{
+        printf("\nQUEUE\n");
+        if(*fr < *re){
+            for(int i = *fr; i<= *re; i++){
+                printf("%d ",CQ[i]);
+   }
+        }else{
+            for(int i = *fr; i<= max-1;i++){
+                printf("%d ",CQ[i]);
+            }
+            for(int i = 0; i<= *re;i++){
+                printf("%d ",CQ[i]);
+            }}}}
+int main(){
+    int fr = -1,re=-1,max,ch;
+    printf("Enter maximum number of elements: ");
+    scanf("%d",&max);
+    int circularqueue[max];
+    while(1){
+        printf("\nMENU\n");
+        printf("\n1. Enqueue \n2. Dequeue \n3. Display \n4. Exit \n");
+        printf("Enter choice: ");
+        scanf("%d",&ch);
+        if(ch == 1){
+            enqueue(circularqueue,&fr,&re,max);
+        }else if(ch == 2){
+            dequeue(circularqueue,&fr,&re,max);
+        }else if(ch == 3){
+            display(circularqueue,&fr,&re,max);
+        }else if(ch == 4){
+            printf("Exiting...\n");
+            return 0;
+        }else{
+            printf("Invalid Option!!!\n");
+        }
+    }
+    
+}
