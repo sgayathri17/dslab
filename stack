@@ -1,0 +1,67 @@
+#include <stdio.h>
+int push(int stack[],int top,int n){
+	if(top>=n-1){
+		printf("\nStack Overflow");
+	}
+	else{
+	int item;
+	top++;
+	printf("Enter the element to be inserted: ");
+	scanf("%d",&item);
+	stack[top]=item;
+	}
+	return top;
+}
+int pop(int stack[],int top){
+	if(top==-1){
+		printf("\nStack Underflow");
+	}
+	else{
+		int item=stack[top];
+		top--;
+		printf("\nThe deleted elemenent is: %d",item);
+	}
+	return top;
+}
+void display(int stack[],int top){
+	if(top==-1){
+		printf("\nStack is empty");
+	}
+	else{
+		printf("\n The stack is:\n");
+		for(int i=top;i>=0;i--){
+			printf("%d\n",stack[i]);
+		}
+	}
+}
+int main(){
+	int n,choice,top=-1;
+	char c;
+	printf("Enter the size of the stack: ");
+	scanf("%d",&n);
+	int stack[n];
+	do{
+		printf("\nStack operations");
+		printf("\n1.push\n2.pop\n3.display");
+		printf("\nEnter the choice:");
+		scanf("%d",&choice);
+		switch(choice){
+		 case 1:
+		 	top=push(stack,top,n);
+		 	break;
+		 case 2:
+		 	top=pop(stack,top);
+		 	break;
+		 case 3:
+		 	display(stack,top);
+		 	break;
+		 default:
+		 	printf("\nInvalid choice");
+		 	break;
+		}
+		printf("\nDo you want to continue(Y/N): ");
+		scanf(" %c",&c);
+	}while(c=='y'||c=='Y');
+	printf("\nExiting...\n");
+	return 0;
+}
