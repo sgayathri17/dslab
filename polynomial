@@ -1,0 +1,28 @@
+#include <stdio.h>
+struct polynomial{
+	int coefficient;
+	int exponent;
+};
+int main(){
+	int term;
+	printf("Enter number of terms: ");
+	scanf("%d",&term);
+	struct polynomial p[term];
+	for(int i = 1; i<=term;i++){
+		printf("Enter the coefficient of term %d: ",i);
+		scanf("%d",&p[i].coefficient);
+		printf("Enter the power of term %d: ",i);
+		scanf("%d",&p[i].exponent);}
+	printf("\nPOLYNOMIAL REPRESENTATION\n");
+	for(int i = 1; i<=term;i++){
+		if(p[i].coefficient!=0){
+			if(p[i].exponent==1){
+				printf("%dx",p[i].coefficient);
+			}
+			else if(p[i].exponent==0){
+				printf("%d",p[i].coefficient);
+			}
+			else{
+				printf("%dx^%d",p[i].coefficient,p[i].exponent);}
+			
+			if(i!=term) printf(" + ");}}}
